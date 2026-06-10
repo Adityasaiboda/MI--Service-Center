@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MI Service Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>MI Service Center</h1>
+
+        <h2>Register Service Call</h2>
+
+        <form id="customerForm">
+
+            <input type="text" id="customer_name" placeholder="Customer Name" required>
+
+            <input type="text" id="phone1" placeholder="Phone Number 1" required>
+
+            <input type="text" id="phone2" placeholder="Phone Number 2">
+
+            <input type="email" id="email" placeholder="Email">
+
+            <textarea id="address" placeholder="Address"></textarea>
+
+            <input type="text" id="imei" placeholder="IMEI Number" required>
+
+            <input type="text" id="model" placeholder="Model Details" required>
+
+            <textarea id="problem" placeholder="Problem Description"></textarea>
+
+            <input type="number" id="estimated_cost" placeholder="Estimated Cost">
+            
+            <input type="number" id="advance_received" placeholder="Advance Received">
+            <label>Advance Payment Mode</label>
+
+            <select id="advance_payment_mode">
+
+            <option value="Cash">Cash</option>
+
+            <option value="UPI">UPI</option>
+            </select>
+
+            <input type="number" id="remaining_amount" readonly>
+            <input type="date" id="entry_date">
+
+            <button type="submit">Register Call</button>
+            
+
+        <body>
+
+        <div class="container">
+
+            <h1>MI Service Center</h1>
+
+            <form id="customerForm">
+
+                <!-- Existing Registration Fields -->
+
+            </form>
+
+            <p id="message"></p>
+
+            <hr>
+
+            <h2>Search Customer</h2>
+
+            <input
+                type="text"
+                id="searchValue"
+                placeholder="Enter Phone Number or IMEI">
+    
+            <button onclick="searchCustomer()">
+                Search
+            </button>
+
+            <br><br>
+
+            <table border="1" id="resultTable">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>IMEI</th>
+                        <th>Model</th>
+                        <th>Problem</th>
+                        <th>Cost</th>
+                        <th>Advance</th>
+                        <th>Balance</th>
+                        <th>Repair Status</th>
+                        <th>Payment Status</th>
+                        <th>Paid Amount</th>
+                        <th>Payment Mode</th>
+                        <th>Save Payment</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                
+
+                <tbody id="resultBody">
+
+                </tbody>
+
+            </table>
+            
+            <hr>
+
+            <h2>All Service Calls</h2>
+
+            <button onclick="loadCustomers()">
+                View All Customers
+            </button>
+
+            <br><br>
+
+            <table border="1">
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>IMEI</th>
+                        <th>Model</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="allCustomersBody">
+
+                </tbody>
+
+            </table>
+            
+            <h3>Filter By Date</h3>
+            <input type="date" id="filterDate">
+            <button onclick="filterByDate()">
+                Search Date
+            </button>
+
+            <h3>Daily Collection Summary</h3>
+
+            <p>
+            Cash Collection:
+            ₹<span id="cashTotal">0</span>
+            </p>
+
+            <p>
+            Online Collection:
+            ₹<span id="onlineTotal">0</span>
+            </p>
+
+            <p>
+            Total Collection:
+           ₹<span id="grandTotal">0</span>
+            </p>
+
+
+    </div>
+
+<script src="script.js"></script>
+
+</body>
