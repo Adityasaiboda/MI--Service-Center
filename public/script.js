@@ -351,9 +351,7 @@ paymentStatus
 
 function loadCustomers() {
 
-    fetch(
-    "http://localhost:3000/api/customers/all"
-    )
+    fetch("/api/customers/all")
 
     .then(response =>
         response.json()
@@ -446,7 +444,7 @@ function updateStatus(id, status){
     console.log("Updating:", id, status);
 
     fetch(
-    `http://localhost:3000/api/customers/status/${id}`,
+    `/api/customers/status/${id}`,
     {
         method:"PUT",
 
@@ -480,7 +478,7 @@ function filterByDate(){
 
     // Load customers
     fetch(
-    `http://localhost:3000/api/customers/date/${date}`
+    `/api/customers/date/${date}`
     )
 
     .then(response =>
@@ -521,7 +519,7 @@ function filterByDate(){
     // Load collection summary
     console.log(date);
    fetch(
-`http://localhost:3000/api/customers/collection/${date}`
+`/api/customers/collection/${date}`
 )
 
 .then(response => response.json())
@@ -554,7 +552,7 @@ function deleteCustomer(id){
     }
 
     fetch(
-    `http://localhost:3000/api/customers/${id}`,
+    `/api/customers/${id}`,
     {
         method:"DELETE"
     })
