@@ -11,7 +11,7 @@ function login(){
     ).value;
 
     fetch(
-    "http://localhost:3000/api/customers/login",
+    "/api/customers/login",
     {
 
         method:"POST",
@@ -43,8 +43,7 @@ function login(){
                 data.role
             );
 
-            window.location.href =
-            "/index.html";
+            window.location.href = "/dashboard.html";
 
         }
         else{
