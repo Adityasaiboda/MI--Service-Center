@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 
@@ -20,12 +21,11 @@ app.use(
     customerRoutes
 );
 
+
 app.get("/", (req,res)=>{
-
-    res.send(
-        "MI Service Center Running"
+    res.sendFile(
+        path.join(__dirname, "public", "login.html")
     );
-
 });
 
 app.listen(PORT,()=>{
