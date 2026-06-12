@@ -1,51 +1,89 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f6f8;
-}
+/* Dashboard Styling */
 
 .container {
-    width: 600px;
-    margin: 30px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
+max-width: 800px;
+margin: 30px auto;
 }
 
-h1 {
-    text-align: center;
-    color: #ff6900;
+.container h1 {
+margin-bottom: 30px;
 }
 
-h2 {
-    text-align: center;
+/* Dashboard Buttons */
+
+.dashboard-btn {
+width: 100%;
+padding: 15px;
+margin-bottom: 15px;
+background: #ff6900;
+color: white;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+font-size: 16px;
+font-weight: bold;
 }
 
-input,
-textarea,
-button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    box-sizing: border-box;
+.dashboard-btn:hover {
+background: #e65f00;
 }
 
-textarea {
-    height: 80px;
+/* Back Button */
+
+.back-btn {
+width: auto;
+padding: 10px 20px;
+margin-bottom: 20px;
 }
 
-button {
-    background: #ff6900;
-    color: white;
-    border: none;
-    cursor: pointer;
+/* Search Customer Card */
+
+.customer-card {
+background: #ffffff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+margin-top: 20px;
 }
 
-button:hover {
-    opacity: 0.9;
+.customer-card h2 {
+color: #ff6900;
+margin-bottom: 15px;
 }
 
-#message {
-    text-align: center;
-    margin-top: 15px;
-    font-weight: bold;
+.customer-card p {
+margin: 8px 0;
+}
+
+.customer-card input,
+.customer-card select {
+width: 100%;
+padding: 10px;
+margin-top: 5px;
+margin-bottom: 10px;
+}
+
+.customer-card button {
+width: auto;
+margin-right: 10px;
+}
+
+/* Report Cards */
+
+.report-card {
+background: #ffffff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+margin-bottom: 20px;
+}
+
+.report-card h3 {
+color: #ff6900;
+margin-bottom: 15px;
+}
+
+.report-card p {
+font-size: 18px;
+margin: 10px 0;
 }

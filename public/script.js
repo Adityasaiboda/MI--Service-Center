@@ -112,95 +112,103 @@ function searchCustomer() {
         "searchValue"
     ).value;
 
-    fetch("/api/customers/search")
+    fetch(`/api/customers/search/${value}`)
 
     .then(response => response.json())
 
     .then(data => {
 
-        const tableBody =
+        const customerDetails =
         document.getElementById(
-            "resultBody"
+            "customerDetails"
         );
 
-        tableBody.innerHTML = "";
+        customerDetails.innerHTML = "";
 
         data.forEach(customer => {
 
-            tableBody.innerHTML += `
+            customerDetails.innerHTML += `
 
-            <tr>
+            <div class="customer-card">
 
-                <td>${customer.customer_name}</td>
+                <h2>${customer.customer_name}</h2>
 
-                <td>${customer.phone1}</td>
+                <p><b>Phone:</b> ${customer.phone1}</p>
 
-                <td>${customer.imei}</td>
+                <p><b>IMEI:</b> ${customer.imei}</p>
 
-                <td>${customer.model}</td>
+                <p><b>Model:</b> ${customer.model}</p>
 
-                <td>${customer.problem}</td>
+                <p><b>Problem:</b> ${customer.problem}</p>
 
-                <td>${customer.estimated_cost}</td>
+                <p><b>Estimated Cost:</b> ₹${customer.estimated_cost}</p>
 
-                <td>${customer.advance_received}</td>
+                <p><b>Advance Paid:</b> ₹${customer.advance_received}</p>
 
-                <td>${customer.remaining_amount}</td>
-                <td>
+                <p><b>Balance Amount:</b> ₹${customer.remaining_amount}</p>
 
-    <select onchange="updateStatus(${customer.id},this.value)">
-        <option value="Pending">Pending</option>
-        <option value="Repairing">Repairing</option>
-        <option value="Ready">Ready</option>
-        <option value="Delivered">Delivered</option>
-    </select>
-</td>
+                <br>
 
-<td>
-    <select id="paymentStatus_${customer.id}">
-        <option value="Pending">Pending</option>
-        <option value="Paid">Paid</option>
-    </select>
-</td>
+                <label><b>Repair Status</b></label>
 
-<td>
-    <input
-    type="number"
-    id="paidAmount_${customer.id}"
-    placeholder="Amount">
-</td>
+                <select onchange="updateStatus(${customer.id},this.value)">
+                    <option value="Pending">Pending</option>
+                    <option value="Repairing">Repairing</option>
+                    <option value="Ready">Ready</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
 
-<td>
-    <select id="paymentMode_${customer.id}">
-        <option value="Cash">Cash</option>
-        <option value="UPI">UPI</option>
-    </select>
-</td>
+                <br><br>
 
-<td>
-    <button onclick="savePayment(${customer.id})">
-        Save
-    </button>
-</td>
+                <label><b>Payment Status</b></label>
 
-<td>
-    <button onclick="markDelivered(${customer.id})">
-        Deliver
-    </button>
-</td>
-            </tr>
+                <select id="paymentStatus_${customer.id}">
+                    <option value="Pending">Pending</option>
+                    <option value="Paid">Paid</option>
+                </select>
+
+                <br><br>
+
+                <input
+                    type="number"
+                    id="paidAmount_${customer.id}"
+                    placeholder="Remaining Amount Paid">
+
+                <br><br>
+
+                <select id="paymentMode_${customer.id}">
+                    <option value="Cash">Cash</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Card">Card</option>
+                </select>
+
+                <br><br>
+
+                <button onclick="savePayment(${customer.id})">
+                    Save Payment
+                </button>
+
+                <button onclick="markDelivered(${customer.id})">
+                    Deliver Device
+                </button>
+
+            </div>
+
+            <br>
             `;
         });
+
     })
 
     .catch(error => {
 
-    console.error(
-        "Search Error:",
-        error
-    );
+        console.error(
+            "Search Error:",
+            error
+        );
 
-});
+    });
+
 }
 function savePayment(id){
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Register Service Call</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+```
+<h1>Register Service Call</h1>
+
+<button onclick="location.href='dashboard.html'">
+    Back to Dashboard
+</button>
+
+<br><br>
+
+<form id="customerForm">
+
+    <input type="text" id="customer_name" placeholder="Customer Name" required>
+
+    <input type="text" id="phone1" placeholder="Phone Number 1" required>
+
+    <input type="text" id="phone2" placeholder="Phone Number 2">
+
+    <input type="email" id="email" placeholder="Email">
+
+    <textarea id="address" placeholder="Address"></textarea>
+
+    <input type="text" id="imei" placeholder="IMEI Number" required>
+
+    <input type="text" id="model" placeholder="Model Details" required>
+
+    <textarea id="problem" placeholder="Problem Description"></textarea>
+
+    <input type="number" id="estimated_cost" placeholder="Estimated Cost">
+
+    <input type="number" id="advance_received" placeholder="Advance Received">
+
+    <label>Advance Payment Mode</label>
+
+    <select id="advance_payment_mode">
+        <option value="Cash">Cash</option>
+        <option value="UPI">UPI</option>
+    </select>
+
+    <input type="number" id="remaining_amount" readonly>
+
+    <input type="date" id="entry_date">
+
+    <button type="submit">
+        Register Call
+    </button>
+
+</form>
+```
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
