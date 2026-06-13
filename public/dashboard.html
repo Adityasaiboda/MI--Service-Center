@@ -3,41 +3,63 @@
 <html>
 <head>
     <title>MI Service Center Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+
+```
+<link rel="stylesheet" href="style.css">
+```
+
 </head>
+
 <body>
 
 ```
 <div class="container">
 
+    <img
+        src="mi-logo.png"
+        alt="MI Logo"
+        class="logo">
+
     <h1>MI Service Center Dashboard</h1>
 
-    <button onclick="location.href='register.html'">
-        Register Service Call
+    <button
+        class="dashboard-btn"
+        onclick="location.href='register.html'">
+
+        📱 Register Service Call
+
     </button>
 
-    <br><br>
+    <button
+        class="dashboard-btn"
+        onclick="location.href='search.html'">
 
-    <button onclick="location.href='search.html'">
-        Search Customer
+        🔍 Search Customer
+
     </button>
 
-    <br><br>
+    <button
+        class="dashboard-btn"
+        onclick="location.href='customers.html'">
 
-    <button onclick="location.href='customers.html'">
-        View All Customers
+        📋 View All Customers
+
     </button>
 
-    <br><br>
+    <button
+        class="dashboard-btn"
+        onclick="location.href='reports.html'">
 
-    <button onclick="location.href='reports.html'">
-        Daily Collection Report
+        📊 Daily Collection Report
+
     </button>
 
-    <br><br>
+    <button
+        class="dashboard-btn logout-btn"
+        onclick="logout()">
 
-    <button onclick="logout()">
-        Logout
+        🚪 Logout
+
     </button>
 
 </div>
@@ -46,7 +68,8 @@
 
     if(!localStorage.getItem("role")){
 
-        window.location.href = "/index.html";
+        window.location.href =
+        "/index.html";
 
     }
 
@@ -54,12 +77,13 @@
 
         localStorage.clear();
 
-        window.location.href = "/index.html";
+        window.location.href =
+        "/index.html";
 
     }
 
 </script>
-```
+<script src="script.js"></script>
 
 </body>
 </html>

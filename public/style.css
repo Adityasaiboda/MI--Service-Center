@@ -1,13 +1,59 @@
 /* Dashboard Styling */
+body {
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg, #ff6900, #ff8c42);
+min-height: 100vh;
+margin: 0;
+padding: 0;
+}
 
 .container {
-max-width: 800px;
-margin: 30px auto;
+width: 500px;
+margin: 50px auto;
+background: white;
+padding: 40px;
+border-radius: 15px;
+box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+text-align: center;
 }
 
-.container h1 {
+h1 {
+color: #ff6900;
 margin-bottom: 30px;
 }
+
+.dashboard-btn {
+width: 100%;
+padding: 15px;
+margin-bottom: 15px;
+border: none;
+border-radius: 10px;
+background: #ff6900;
+color: white;
+font-size: 16px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.dashboard-btn:hover {
+background: #e65f00;
+transform: translateY(-2px);
+}
+
+.logout-btn {
+background: #444;
+}
+
+.logout-btn:hover {
+background: #222;
+}
+
+.logo {
+width: 80px;
+margin-bottom: 20px;
+}
+
 
 /* Dashboard Buttons */
 
@@ -34,6 +80,71 @@ background: #e65f00;
 width: auto;
 padding: 10px 20px;
 margin-bottom: 20px;
+}
+
+.form-container{
+max-width:900px;
+}
+
+.service-form{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-group{
+margin-bottom:15px;
+}
+
+.form-group label{
+display:block;
+font-weight:bold;
+margin-bottom:5px;
+color:#444;
+}
+
+.form-row{
+display:flex;
+gap:15px;
+}
+
+.form-row .form-group{
+flex:1;
+}
+
+.service-form input,
+.service-form textarea,
+.service-form select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:8px;
+font-size:14px;
+}
+
+.service-form textarea{
+min-height:80px;
+}
+
+.submit-btn{
+width:100%;
+padding:15px;
+background:#ff6900;
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.submit-btn:hover
+
+.back-btn{
+width:auto;
+padding:10px 20px;
+margin-bottom:20px;
 }
 
 /* Search Customer Card */
