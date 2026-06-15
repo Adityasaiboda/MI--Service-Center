@@ -1,82 +1,95 @@
 console.log("script.js loaded");
 
-document
-.getElementById("customerForm")
-.addEventListener("submit", function(e){
+const customerForm =
+document.getElementById("customerForm");
 
-    e.preventDefault();
+if(customerForm){
 
-    console.log("Form Submitted");
+    customerForm.addEventListener(
+        "submit",
+        function(e){
 
-    const customerData = {
-        customer_name:
-            document.getElementById("customer_name").value,
+            e.preventDefault();
 
-        phone1:
-            document.getElementById("phone1").value,
+            console.log("Form Submitted");
 
-        phone2:
-            document.getElementById("phone2").value,
+            const customerData = {
 
-        email:
-            document.getElementById("email").value,
+                customer_name:
+                document.getElementById("customer_name").value,
 
-        address:
-            document.getElementById("address").value,
+                phone1:
+                document.getElementById("phone1").value,
 
-        imei:
-            document.getElementById("imei").value,
+                phone2:
+                document.getElementById("phone2").value,
 
-        model:
-            document.getElementById("model").value,
+                email:
+                document.getElementById("email").value,
 
-        problem:
-            document.getElementById("problem").value,
+                address:
+                document.getElementById("address").value,
 
-        estimated_cost:
-            document.getElementById("estimated_cost").value,
+                imei:
+                document.getElementById("imei").value,
 
-        entry_date:
-            document.getElementById("entry_date").value,
-        advance_received:
-            document.getElementById("advance_received").value,
-        advance_payment_mode:
-            document.getElementById("advance_payment_mode").value,
-        remaining_amount:
-            document.getElementById("remaining_amount").value,
-    };
+                model:
+                document.getElementById("model").value,
 
-    console.log(customerData);
+                problem:
+                document.getElementById("problem").value,
 
-    fetch("/api/customers/register", {
+                estimated_cost:
+                document.getElementById("estimated_cost").value,
 
-        method: "POST",
+                entry_date:
+                document.getElementById("entry_date").value,
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+                advance_received:
+                document.getElementById("advance_received").value,
 
-        body: JSON.stringify(customerData)
+                advance_payment_mode:
+                document.getElementById("advance_payment_mode").value,
 
-    })
-    .then(response => response.json())
-    .then(data => {
+                remaining_amount:
+                document.getElementById("remaining_amount").value
 
-        document.getElementById("message").innerHTML =
-            data.message;
+            };
 
-        document.getElementById("customerForm").reset();
+            fetch("/api/customers/register",{
 
-    })
-    .catch(error => {
+                method:"POST",
 
-        console.error(error);
+                headers:{
+                    "Content-Type":"application/json"
+                },
 
-        document.getElementById("message").innerHTML =
-            "Error Saving Customer";
+                body:JSON.stringify(customerData)
 
-    });
-});
+            })
+
+            .then(response=>response.json())
+
+            .then(data=>{
+
+                document.getElementById("message").innerHTML =
+                data.message;
+
+                customerForm.reset();
+
+            })
+
+            .catch(error=>{
+
+                console.log(error);
+
+            });
+
+        }
+
+    );
+
+}
 document
 .getElementById("advance_received")
 .addEventListener("input", calculateBalance);
@@ -222,7 +235,7 @@ function savePayment(id){
         `paymentMode_${id}`
     ).value;
 
-    fetch("/api/customers/payment/1",
+    fetch(`/api/customers/payment/${id}`,
     {
 
         method:"PUT",
@@ -286,7 +299,7 @@ function markDelivered(id){
         return;
     }
 
-    fetch("/api/customers/deliver/1",
+    fetch(`/api/customers/deliver/${id}`,
     {
         method:"PUT"
     })
@@ -319,7 +332,7 @@ paymentStatus
 ){
 
     fetch(
-    `/api/customers/payment/1`,
+    `/api/customers/payment/${id}`,
     {
 
         method:"PUT",

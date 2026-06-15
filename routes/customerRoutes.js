@@ -9,7 +9,7 @@ router.post(
     customerController.createCustomer
 );
 router.get(
-    "/search",
+    "/search/:value",
     customerController.searchCustomer
 );
 router.get(

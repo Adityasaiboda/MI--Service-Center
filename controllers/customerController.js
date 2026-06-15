@@ -18,21 +18,27 @@ exports.createCustomer = (req, res) => {
         });
     });
 };
-exports.searchCustomer = (req, res) => {
+exports.searchCustomer = (req,res)=>{
 
-    const searchValue = req.query.value;
+    const value =
+    req.params.value;
 
     Customer.searchCustomer(
-        searchValue,
-        (err, result) => {
+        value,
+        (err,result)=>{
 
             if(err){
+
                 return res.status(500).json(err);
+
             }
 
             res.json(result);
+
         }
+
     );
+
 };
 exports.getAllCustomers = (req, res) => {
 
