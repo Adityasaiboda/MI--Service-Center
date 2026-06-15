@@ -72,8 +72,15 @@ if(customerForm){
 
             .then(data=>{
 
-                document.getElementById("message").innerHTML =
-                data.message;
+                const message =
+                document.getElementById("message");
+
+                if(message){
+
+                    message.innerHTML =
+                    data.message;
+
+                }
 
                 customerForm.reset();
 
