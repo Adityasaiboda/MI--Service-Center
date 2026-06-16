@@ -35,7 +35,23 @@
 <div id="customerDetails">
 
 </div>
-```
+<script>
+
+const role =
+localStorage.getItem("role");
+
+if(
+role !== "frontdesk" &&
+role !== "technician" &&
+role !== "manager"
+){
+
+    window.location.href =
+    "/index.html";
+
+}
+
+</script>
 
 </div>
 

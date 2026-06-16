@@ -410,56 +410,11 @@ function loadCustomers() {
 
                 <td>${customer.model}</td>
 
-                <td>
+                <td>${customer.entry_date}</td>
 
-                    <select
-                    onchange=
-                    "updateStatus(
-                        ${customer.id},
-                        this.value
-                    )">
+                <td>${customer.status}</td>
 
-                        <option>
-                        ${customer.status}
-                        </option>
-
-                        <option>
-                        Received
-                        </option>
-
-                        <option>
-                        Repairing
-                        </option>
-
-                        <option>
-                        RWR
-                        </option>
-
-                        <option>
-                        Ready
-                        </option>
-
-                        <option>
-                        Delivered
-                        </option>
-
-                    </select>
-
-                </td>
-
-                <td>
-
-                    <button
-                    onclick=
-                    "deleteCustomer(
-                        ${customer.id}
-                    )">
-
-                    Delete
-
-                    </button>
-
-                </td>
+                
 
             </tr>
 
@@ -598,4 +553,57 @@ function deleteCustomer(id){
         loadCustomers();
 
     });
+}
+function filterCustomersByDate(){
+
+    const date =
+    document.getElementById(
+        "filterDate"
+    ).value;
+
+    fetch(
+    `/api/customers/date/${date}`
+    )
+
+    .then(response =>
+        response.json()
+    )
+
+    .then(data => {
+
+        const table =
+        document.getElementById(
+            "allCustomersBody"
+        );
+
+        table.innerHTML = "";
+
+        data.forEach(customer => {
+
+            table.innerHTML += `
+
+            <tr>
+
+                <td>${customer.id}</td>
+
+                <td>${customer.customer_name}</td>
+
+                <td>${customer.phone1}</td>
+
+                <td>${customer.imei}</td>
+
+                <td>${customer.model}</td>
+
+                <td>${customer.entry_date}</td>
+
+                <td>${customer.status}</td>
+
+            </tr>
+
+            `;
+
+        });
+
+    });
+
 }

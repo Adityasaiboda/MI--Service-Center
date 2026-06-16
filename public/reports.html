@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
     <title>Daily Collection Report</title>
@@ -9,60 +8,75 @@
 
 <div class="container">
 
-```
-<h1>Daily Collection Report</h1>
+    <h1>Daily Collection Report</h1>
 
-<button onclick="location.href='dashboard.html'">
-    Back to Dashboard
-</button>
+    <button class="back-btn"
+    onclick="location.href='dashboard.html'">
 
-<br><br>
+        Back to Dashboard
 
-<div class="report-card">
-
-    <h3>Filter By Date</h3>
-
-    <input
-        type="date"
-        id="filterDate">
-
-    <button onclick="filterByDate()">
-        Search Date
     </button>
 
+    <br><br>
+
+    <div class="report-card">
+
+        <h3>Filter By Date</h3>
+
+        <input
+            type="date"
+            id="filterDate">
+
+        <button onclick="filterByDate()">
+            Search Date
+        </button>
+
+    </div>
+
+    <br>
+
+    <div class="report-card">
+
+        <h3>Daily Collection Summary</h3>
+
+        <p>
+            Cash Collection:
+            ₹<span id="cashTotal">0</span>
+        </p>
+
+        <p>
+            Online Collection:
+            ₹<span id="onlineTotal">0</span>
+        </p>
+
+        <p>
+            Total Collection:
+            ₹<span id="grandTotal">0</span>
+        </p>
+
+    </div>
+
+    <div id="dateWiseCustomers">
+
+    </div>
+
 </div>
 
-<br>
+<script>
 
-<div class="report-card">
+const role =
+localStorage.getItem("role");
 
-    <h3>Daily Collection Summary</h3>
+if(role !== "manager"){
 
-    <p>
-        Cash Collection:
-        ₹<span id="cashTotal">0</span>
-    </p>
+    alert("Access Denied");
 
-    <p>
-        Online Collection:
-        ₹<span id="onlineTotal">0</span>
-    </p>
+    window.location.href =
+    "/dashboard.html";
 
-    <p>
-        Total Collection:
-        ₹<span id="grandTotal">0</span>
-    </p>
+}
 
-</div>
-
-<br>
-
-<div id="dateWiseCustomers">
-
-</div>
-```
-
-</div>
+</script>
 
 <script src="script.js"></script>
 

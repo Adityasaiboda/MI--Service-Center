@@ -66,21 +66,88 @@
 
 <script>
 
-    if(!localStorage.getItem("role")){
+const role =
+localStorage.getItem("role");
 
-        window.location.href =
-        "/index.html";
+const menu =
+document.getElementById(
+    "menuContainer"
+);
 
-    }
+if(role === "frontdesk"){
 
-    function logout(){
+    menu.innerHTML = `
 
-        localStorage.clear();
+        <button class="dashboard-btn"
+        onclick="location.href='register.html'">
+            📱 Register Service Call
+        </button>
 
-        window.location.href =
-        "/index.html";
+        <button class="dashboard-btn"
+        onclick="location.href='search.html'">
+            🔍 Search Customer
+        </button>
 
-    }
+    `;
+
+}
+
+else if(role === "technician"){
+
+    menu.innerHTML = `
+
+        <button class="dashboard-btn"
+        onclick="location.href='search.html'">
+            🔍 Search Customer
+        </button>
+
+    `;
+
+}
+
+else if(role === "manager"){
+
+    menu.innerHTML = `
+
+        <button class="dashboard-btn"
+        onclick="location.href='register.html'">
+            📱 Register Service Call
+        </button>
+
+        <button class="dashboard-btn"
+        onclick="location.href='search.html'">
+            🔍 Search Customer
+        </button>
+
+        <button class="dashboard-btn"
+        onclick="location.href='customers.html'">
+            📋 View All Customers
+        </button>
+
+        <button class="dashboard-btn"
+        onclick="location.href='reports.html'">
+            📊 Daily Collection Report
+        </button>
+
+    `;
+
+}
+
+else{
+
+    window.location.href =
+    "/index.html";
+
+}
+
+function logout(){
+
+    localStorage.clear();
+
+    window.location.href =
+    "/index.html";
+
+}
 
 </script>
 <script src="script.js"></script>

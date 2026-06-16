@@ -1,62 +1,65 @@
 function login(){
 
-    const username =
-    document.getElementById(
-        "username"
-    ).value;
+const username =
+document.getElementById("username").value;
 
-    const password =
-    document.getElementById(
-        "password"
-    ).value;
+const password =
+document.getElementById("password").value;
 
-    fetch(
-    "/api/customers/login",
-    {
+fetch("/api/customers/login", {
 
-        method:"POST",
+    method:"POST",
 
-        headers:{
-            "Content-Type":
-            "application/json"
-        },
+    headers:{
+        "Content-Type":"application/json"
+    },
 
-        body:JSON.stringify({
-
-            username,
-            password
-
-        })
-
+    body:JSON.stringify({
+        username,
+        password
     })
 
-    .then(response =>
-        response.json()
-    )
+})
 
-    .then(data => {
+.then(response => response.json())
 
-        if(data.success){
+.then(data => {
 
-            localStorage.setItem(
-                "role",
-                data.role
-            );
+    if(data.success){
 
-            window.location.href = "/dashboard.html";
+        localStorage.setItem(
+            "role",
+            data.role
+        );
 
-        }
-        else{
+        localStorage.setItem(
+            "username",
+            username
+        );
 
-            document
-            .getElementById(
-                "message"
-            )
-            .innerHTML =
-            "Invalid Login";
+        window.location.href =
+        "/dashboard.html";
 
-        }
+    }else{
 
-    });
+        document.getElementById(
+            "message"
+        ).innerHTML =
+        "Invalid Username or Password";
+
+    }
+
+})
+
+.catch(error => {
+
+    console.log(error);
+
+    document.getElementById(
+        "message"
+    ).innerHTML =
+    "Login Error";
+
+});
 
 }

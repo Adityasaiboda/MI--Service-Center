@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Search Customer</title>
+    <title>All Customers</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,39 +10,89 @@
 <div class="container">
 
 ```
-<h1>Search Customer</h1>
+<h1>All Service Calls</h1>
 
-<button onclick="location.href='dashboard.html'">
+<button class="back-btn"
+onclick="location.href='dashboard.html'">
+
     Back to Dashboard
+
 </button>
 
 <br><br>
 
-<div class="search-box">
+<div class="report-card">
 
-    <label>
-        Phone Number / IMEI Number
-    </label>
+    <h3>Filter By Date</h3>
 
     <input
-        type="text"
-        id="searchValue"
-        placeholder="Enter Phone Number or IMEI">
+    type="date"
+    id="filterDate">
 
-    <button onclick="searchCustomer()">
-        Search Customer
+    <button onclick="filterCustomersByDate()">
+
+        Search Date
+
+    </button>
+
+    <button onclick="loadCustomers()">
+
+        View All
+
     </button>
 
 </div>
 
 <br>
 
-<div id="customerDetails">
+<table border="1">
 
-</div>
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>IMEI</th>
+            <th>Model</th>
+            <th>Date</th>
+            <th>Status</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody id="allCustomersBody">
+
+    </tbody>
+
+</table>
 ```
 
 </div>
+
+<script>
+
+const role =
+localStorage.getItem("role");
+
+if(!role){
+
+    window.location.href =
+    "/index.html";
+
+}
+else if(role !== "manager"){
+
+    alert("Access Denied");
+
+    window.location.href =
+    "/dashboard.html";
+
+}
+
+</script>
 
 <script src="script.js"></script>
 
