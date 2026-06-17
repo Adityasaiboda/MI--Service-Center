@@ -97,14 +97,32 @@ if(customerForm){
     );
 
 }
-document
-.getElementById("advance_received")
-.addEventListener("input", calculateBalance);
+const advanceReceived =
+document.getElementById(
+    "advance_received"
+);
 
-document
-.getElementById("estimated_cost")
-.addEventListener("input", calculateBalance);
+const estimatedCost =
+document.getElementById(
+    "estimated_cost"
+);
 
+if(
+    advanceReceived &&
+    estimatedCost
+){
+
+    advanceReceived.addEventListener(
+        "input",
+        calculateBalance
+    );
+
+    estimatedCost.addEventListener(
+        "input",
+        calculateBalance
+    );
+
+}
 function calculateBalance(){
 
     const estimated =
